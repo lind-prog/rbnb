@@ -1,0 +1,9 @@
+<h1>Offer Details</h1>
+
+<p><strong>Number of Fans:</strong> <%= h(@offer.number_of_fan.to_s) %></p>
+<p><strong>Enthusiasm Level:</strong> <%= h(@offer.enthusiasm_level.to_s) %></p>
+<p><strong>Activity:</strong> <%= h(@offer.activity) %></p>
+<p><strong>Price:</strong> <%= number_to_currency(@offer.price, unit: "€") %></p>
+<p><strong>Created by:</strong> <%= h(@offer.user.email) %></p>
+
+<%= link_to 'Back to Offers', offers_path %>
