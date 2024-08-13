@@ -1,17 +1,17 @@
 <!-- app/views/offers/index.html.erb -->
-<h1>Star D'un Jour</h1>
+<h1 class = "pt-4"> ✨ Star for a Day ✨</h1>
 
-<%= link_to 'Create a new offer', new_offer_path, class: 'btn btn-primary mb-3' %>
 
 <div class="container">
+<div class ="ml-3 mb-3 col-12 text-end"> <%= link_to 'Propose a fan performance', new_offer_path, class: 'btn btn-primary mb-3' %> </div>
   <div class="row">
     <% if @offers.present? %>
       <% @offers.each do |offer| %>
         <div class="col-md-4 mb-3">
           <div class="card">
             <%= image_tag offer.image_url, class: "card-img-top", alt: "Offer Image" %>
-            <div class="card-body">
-              <h5 class="card-title"><%= link_to offer.title, offer_path(offer), class: "text-dark" %></h5>
+            <div class="card-body ">
+              <h5 class="card-title"><%= link_to offer.title, offer_path(offer), class: "text-dark stretched-link" %></h5>
               <p class="card-text"><strong>Number of Fans:</strong> <%= offer.number_of_fan %></p>
               <p class="card-text"><strong>Enthusiasm Level:</strong> <%= offer.enthusiasm_level %></p>
               <p class="card-text"><strong>Price:</strong> <%= number_to_currency(offer.price, unit: "€") %></p>
