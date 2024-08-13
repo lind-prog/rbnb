@@ -1,9 +1,16 @@
 <h1>Available Offers</h1>
 
-<% @offers.each do |offer| %>
-  <div>
-    <h2><%= link_to offer.title, offer %></h2>
-    <p><%= offer.description %></p>
-    <p>Price: <%= offer.price %></p>
-  </div>
+<% if @offers.present? %>
+  <% @offers.each do |offer| %>
+    <div>
+      <h2><%= link_to "Offer ##{offer.id}", offer_path(offer) %></h2>
+      <p>Number of Fans: <%= h(offer.number_of_fan.to_s) %></p>
+      <p>Enthusiasm Level: <%= h(offer.enthusiasm_level.to_s) %></p>
+      <p>Activity: <%= h(offer.activity) %></p>
+      <p>Price: <%= number_to_currency(offer.price, unit: "$") %></p>
+      <p>Created by: <%= h(offer.user.email) %></p>
+    </div>
+  <% end %>
+<% else %>
+  <p>No offers available.</p>
 <% end %>
