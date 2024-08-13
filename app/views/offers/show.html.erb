@@ -2,8 +2,9 @@
   <h1><%= @offer.title %></h1>
   <p> 👩🏾‍🤝‍👨🏼 Number of fans  : <%= @offer.number_of_fan %></p>
   <p> 🥳 Enthusiasm level : <%= @offer.enthusiasm_level %></p>
-  <p> Activity : <%= @offer.activity %></p>
-  <p> Price : <%= @offer.price %> €</p>
+  <p> 📸 Activity : <%= @offer.activity %></p>
+  <p> 💸 Price : <%= @offer.price %> €</p>
+  <p class ="pt-3"> <%= link_to "Book this offer", offers_path, :class => "btn btn-outline-info"%> </p>
 </div>
 
-<p> <%= link_to "Back to offers", offers_path, :class => "btn btn-outline-secondary"%> </p>
+<p class ="m-5"> <%= link_to "Back to offers", offers_path, :class => "btn btn-outline-secondary"%> </p>
