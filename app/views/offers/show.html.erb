@@ -1,10 +1,9 @@
 <div class="container">
-  <h1><%= "Titre offre" %></h1>
-  <p><%= @offer.number_of_fan %></p>
-  <p><%= @offer.enthusiasm_level %></p>
-  <p><%= @offer.activity %></p>
-  <p><%= @offer.price %></p>
-  <p><%= @offer.user_id %></p>
+  <h1><%= @offer.title %></h1>
+  <p> 👩🏾‍🤝‍👨🏼 Number of fans  : <%= @offer.number_of_fan %></p>
+  <p> 🥳 Enthusiasm level : <%= @offer.enthusiasm_level %></p>
+  <p> Activity : <%= @offer.activity %></p>
+  <p> Price : <%= @offer.price %> €</p>
 </div>
 
 <p> <%= link_to "Back to offers", offers_path, :class => "btn btn-outline-secondary"%> </p>
