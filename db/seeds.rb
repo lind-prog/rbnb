@@ -1,9 +1,47 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
+# db/seeds.rb
+
+# Supprimer les données existantes pour les tests
+User.destroy_all
+Offer.destroy_all
+
+user1 = User.create!(email: 'john.doe@example.com', password: 'password123')
+user2 = User.create!(email: 'jane.smith@example.com', password: 'password123')
+
+# Créer des offres de test
+Offer.create!(
+  title: 'VIP Meet and Greet',
+  number_of_fan: 10,
+  enthusiasm_level: 'High',
+  activity: 'Autograph signing',
+  price: 100,
+  user: user1
+)
+
+Offer.create!(
+  title: 'Selfie Session',
+  number_of_fan: 5,
+  enthusiasm_level: 'Moderate',
+  activity: 'Selfie session',
+  price: 50,
+  user: user1
+)
+
+Offer.create!(
+  title: 'Crowd Cheering',
+  number_of_fan: 20,
+  enthusiasm_level: 'Very High',
+  activity: 'Crowd cheering',
+  price: 200,
+  user: user2
+)
+
+Offer.create!(
+  title: 'Event Appearance',
+  number_of_fan: 8,
+  enthusiasm_level: 'Low',
+  activity: 'Event appearance',
+  price: 75,
+  user: user2
+)
+
+puts Offer.count

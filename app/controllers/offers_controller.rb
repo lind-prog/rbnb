@@ -1,10 +1,14 @@
 class OffersController < ApplicationController
   before_action :set_offer, only: %i[show]
 
+  def index
+    @offers = Offer.all
+  end
+
   def show
   end
 
-private
+  private
 
   def set_offer
     @offer = Offer.find(params[:id])
