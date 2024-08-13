@@ -1,16 +1,25 @@
+<!-- app/views/offers/index.html.erb -->
 <h1>Available Offers</h1>
 
-<% if @offers.present? %>
-  <% @offers.each do |offer| %>
-    <div>
-      <h2><%= link_to "Offer ##{offer.id}", offer_path(offer) %></h2>
-      <p>Number of Fans: <%= h(offer.number_of_fan.to_s) %></p>
-      <p>Enthusiasm Level: <%= h(offer.enthusiasm_level.to_s) %></p>
-      <p>Activity: <%= h(offer.activity) %></p>
-      <p>Price: <%= number_to_currency(offer.price, unit: "$") %></p>
-      <p>Created by: <%= h(offer.user.email) %></p>
-    </div>
-  <% end %>
-<% else %>
-  <p>No offers available.</p>
-<% end %>
+<%= link_to 'New Offer', new_offer_path, class: 'btn btn-primary mb-3' %>
+
+<div class="container">
+  <div class="row">
+    <% if @offers.present? %>
+      <% @offers.each do |offer| %>
+        <div class="col-md-4 mb-3">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title"><%= link_to "#{offer.title}", offer_path(offer) %></h5>
+              <p class="card-text"><strong>Number of Fans:</strong> <%= h(offer.number_of_fan.to_s) %></p>
+              <p class="card-text"><strong>Enthusiasm Level:</strong> <%= h(offer.enthusiasm_level.to_s) %></p>
+              <p class="card-text"><strong>Price:</strong> <%= number_to_currency(offer.price, unit: "€") %></p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% else %>
+      <p>No offers available.</p>
+    <% end %>
+  </div>
+</div>
