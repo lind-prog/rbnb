@@ -12,7 +12,7 @@ class OffersController < ApplicationController
   def create
     @offer = Offer.new(offer_params)
     if @offer.save
-      redirect_to @offer, notice: "L'offre a été créée avec succés !"
+      redirect_to @offer, notice: "Offer was successfully created !"
     else
       render :new, status: :unprocessable_entity
     end

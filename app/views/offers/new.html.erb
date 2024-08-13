@@ -1,0 +1,33 @@
+<div class = ".bg-secondary.bg-gradient">
+  <h1 class = "text-center">My service 🎉</h1>
+  <%= form_with model: @offer, local: true do |form| %>
+    <div>
+      <%= form.label :title, "Offer Title" %>
+      <%= form.text_field :title %>
+    </div>
+
+    <div>
+      <%= form.label :fans_count, "Number of Fans" %>
+      <%= form.number_field :fans_count %>
+    </div>
+
+    <div>
+      <%= form.label :activity, "Activity" %>
+      <%= form.text_field :activity %>
+    </div>
+
+    <div>
+      <%= form.label :price, "Price" %>
+      <%= form.number_field :price, step: 0.01 %>
+    </div>
+
+    <div>
+      <%= form.label :enthusiasm_level, "Level of Enthusiasm" %>
+      <%= form.select :enthusiasm_level, options_for_select(["Hysteric", "Devoted", "Modest"]) %>
+    </div>
+
+    <div>
+      <%= form.submit "Create Offer" %>
+    </div>
+  <% end %>
+</div>
