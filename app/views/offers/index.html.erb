@@ -1,0 +1,9 @@
+<h1>Available Offers</h1>
+
+<% @offers.each do |offer| %>
+  <div>
+    <h2><%= link_to offer.title, offer %></h2>
+    <p><%= offer.description %></p>
+    <p>Price: <%= offer.price %></p>
+  </div>
+<% end %>
