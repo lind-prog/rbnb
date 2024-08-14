@@ -14,7 +14,9 @@ Offer.create!(
   activity: 'Autograph signing',
   price: 100,
   user: user1,
-  image_url: 'https://th.bing.com/th/id/OIG2.4HiRdYeKHwj43JxLj4CR?w=1024&h=1024&rs=1&pid=ImgDetMain'
+  image_url: 'https://th.bing.com/th/id/OIG2.4HiRdYeKHwj43JxLj4CR?w=1024&h=1024&rs=1&pid=ImgDetMain',
+  localisation: 'Bordeaux',
+  description: 'Step into the spotlight with a VIP Meet and Greet in Bordeaux. Sign autographs for 10 hysteric fans and experience the thrill of stardom.'
 )
 
 Offer.create!(
@@ -24,7 +26,9 @@ Offer.create!(
   activity: 'Selfie session',
   price: 50,
   user: user1,
-  image_url: 'https://th.bing.com/th/id/OIG2.W7UkydftC8As.7iFmCWA?pid=ImgGn'
+  image_url: 'https://th.bing.com/th/id/OIG2.W7UkydftC8As.7iFmCWA?pid=ImgGn',
+  localisation: 'Marseille',
+  description: 'Shine like a star in Marseille with an exclusive selfie session. Pose with 5 devoted fans and capture the perfect moment for just €50.'
 )
 
 Offer.create!(
@@ -34,7 +38,9 @@ Offer.create!(
   activity: 'Crowd cheering',
   price: 200,
   user: user2,
-  image_url: 'https://th.bing.com/th/id/OIG1.VGDfQevFuQwm0r3I.XcL?pid=ImgGn'
+  image_url: 'https://th.bing.com/th/id/OIG1.VGDfQevFuQwm0r3I.XcL?pid=ImgGn',
+  localisation: 'London',
+  description: 'Feel the energy of the crowd in London as 20 hysteric fans cheer you on. Embrace the excitement and live like a star.'
 )
 
 Offer.create!(
@@ -44,7 +50,9 @@ Offer.create!(
   activity: 'Event appearance',
   price: 75,
   user: user2,
-  image_url: 'https://th.bing.com/th/id/OIG1._AFoT9_TX_UI2arr7SSh?pid=ImgGn'
+  image_url: 'https://th.bing.com/th/id/OIG1._AFoT9_TX_UI2arr7SSh?pid=ImgGn',
+  localisation: 'Milan',
+  description: 'Make a memorable event appearance in Milan with 8 modest fans. Enjoy the spotlight and the unique experience for only €75.'
 )
 
 puts Offer.count
