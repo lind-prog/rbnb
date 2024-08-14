@@ -1,0 +1,29 @@
+<!-- app/views/bookings/new.html.erb -->
+<div class="container booking-container">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card booking-card">
+        <div class="card-header booking-card-header">
+          <h3>Book <%= @offer.title %></h3>
+        </div>
+        <div class="card-body booking-card-body">
+          <%= form_with model: [@offer, @booking], local: true do |form| %>
+            <div class="mb-3">
+              <%= form.label :date, "Select Date", class: "form-label booking-form-label" %>
+              <%= form.date_field :date, class: "form-control booking-form-control" %>
+            </div>
+
+            <div class="mb-3">
+              <%= form.label :additional_requests, "Additional Requests", class: "form-label booking-form-label" %>
+              <%= form.text_area :additional_requests, class: "form-control booking-form-control", placeholder: "Enter any special requests or notes here..." %>
+            </div>
+
+            <div class="d-grid">
+              <%= form.submit 'Confirm Booking', class: "btn btn-primary booking-btn btn-lg" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,31 @@
+/* app/assets/stylesheets/bookings.css.scss */
+
+/* Styles spécifiques à la page de réservation */
+
+/* Appliquer un fond de couleur à l'ensemble de la page de réservation */
+body {
+  background-color: #000000; /* Remplacez #f5f5f5 par la couleur de votre choix */
+  margin: 0;
+  padding: 0;
+}
+
+/* Styles spécifiques pour le conteneur de réservation */
+.booking-container {
+  margin-top: 5rem;
+  padding: 2rem;
+  border-radius: 0.5rem;
+}
+
+/* Styles des cartes */
+.booking-card {
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* En-tête de la carte */
+.booking-card-header {
+  background-image: linear-gradient(135deg, #17a2b8, #007bff);
+  color: #fff;
+  padding: 1.5rem;
+  border-bottom: none;
+}
