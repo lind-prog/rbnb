@@ -9,7 +9,6 @@ class BookingsController < ApplicationController
   def create
     @booking = @offer.bookings.build(booking_params)
     @booking.user = current_user
-
     if @booking.save
       redirect_to my_bookings_bookings_path, notice: 'Your booking has been successfully created!'
     else
