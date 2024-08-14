@@ -19,6 +19,11 @@
       </div>
 
       <div class="form-group">
+        <%= form.label :description, "Description" %>
+        <%= form.text_field :description, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
         <%= form.label :price, "Price" %>
         <%= form.number_field :price, step: 1, class: "form-control" %>
       </div>
@@ -26,6 +31,11 @@
       <div class="form-group">
         <%= form.label :enthusiasm_level, "Level of Enthusiasm" %>
         <%= form.select :enthusiasm_level, options_for_select(["Hysteric", "Devoted", "Modest"]), {}, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :localisation, "Localisation" %>
+        <%= form.text_field :localisation, class: "form-control" %>
       </div>
 
       <div class="form-group">
