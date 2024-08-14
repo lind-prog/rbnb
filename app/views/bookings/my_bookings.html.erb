@@ -1,0 +1,31 @@
+<div class="container mt-5">
+  <h1> My bookings 🪩 </h1>
+   <div class="col-12 text-end mb-3 mr-6">
+        <%= link_to "Back to offers", offers_path, class: "btn btn-secondary" %>
+    </div>
+
+   <div class="row">
+    <% @bookings.each do |booking| %>
+     <div class="col-12">
+      <div class="card mb-4 shadow-sm">
+        <div class="card-body">
+         <div class = row>
+          <div class="col-md-8">
+           <h3 p-10><%= booking.offer.title %></h3>
+            <p><strong>Activity: </strong><%= booking.offer.activity %></p>
+            <p><strong>Number of fans: </strong><%= booking.offer.number_of_fan %></p>
+            <p><strong>Enthusiasm level: </strong><%= booking.offer.enthusiasm_level %></p>
+            <p><strong>Localisation: </strong><%= booking.offer.localisation %></p>
+            <p><strong>Price: </strong> <%= booking.offer.price %>€</p>
+          </div>
+           <div class="col-md-4 text-md-right">
+            <p><strong>Reservation date: </strong> <%= booking.date %></p>
+            <p><strong>My comment: </strong> <%= booking.additional_requests %></p>
+           </div>
+        </div>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
