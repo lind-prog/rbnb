@@ -49,6 +49,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_14_102601) do
     t.bigint "offer_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "additional_requests"
     t.index ["offer_id"], name: "index_bookings_on_offer_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
@@ -63,6 +64,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_14_102601) do
     t.datetime "updated_at", null: false
     t.string "title"
     t.string "image_url"
+    t.string "localisation"
+    t.text "description"
     t.index ["user_id"], name: "index_offers_on_user_id"
   end
 
