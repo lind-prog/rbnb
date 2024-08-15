@@ -1,8 +1,13 @@
 class OffersController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index]
   before_action :set_offer, only: %i[show]
+
   def index
-    @offers = Offer.all
+    if params[:query].present?
+      @offers = Offer.global_search(params[:query])
+    else
+      @offers = Offer.all
+    end
   end
 
   def new
@@ -13,18 +18,16 @@ class OffersController < ApplicationController
     @offer = Offer.new(offer_params)
     @offer.user = current_user
     if @offer.save
-      redirect_to offers_path, notice: "Great ! Your offer was created !"
+      redirect_to offers_path, notice: "Great! Your offer was created!"
     else
       render :new, status: :unprocessable_entity
     end
   end
 
   def show
+
     @booking = Booking.new
   end
-  #afficher la nouvelle offre dans la view de l'index
-  #retourner sur l'offre une fois le create terminé
-  #inserer une image avec le tout
 
   private
 

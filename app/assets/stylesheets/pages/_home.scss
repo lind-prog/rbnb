@@ -1,78 +1,211 @@
 /* custom.css */
 
+/* Style général du corps */
 body {
   font-family: 'Roboto', sans-serif;
-  background-color: #f8f9fa;
-  color: #343a40;
+  background-color: #f2f3f4; /* Arrière-plan très clair */
+  color: #2c3e50; /* Couleur du texte principal */
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
 }
 
+/* Style pour les titres principaux */
 h1 {
   font-weight: 700;
+  color: #2c3e50; /* Couleur du texte du titre */
+  margin-bottom: 2.5rem;
+  font-size: 2.5rem; /* Taille du titre */
+  border-bottom: 3px solid #e74c3c; /* Ligne de séparation rouge sous le titre */
+  padding-bottom: 0.5rem;
   text-align: center;
-  margin-bottom: 30px;
-  color: #212529;
 }
 
+/* Style pour les cartes d'offre */
 .card {
   border: none;
-  border-radius: 15px;
+  border-radius: 12px; /* Coins arrondis marqués */
   overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1); /* Ombre douce */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+  margin-bottom: 1.5rem;
+  background-color: #ffffff; /* Fond blanc pour les cartes */
 }
 
+/* Effet de zoom léger pour la carte */
 .card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  transform: translateY(-5px); /* Déplacement subtil au survol */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); /* Ombre légèrement accentuée */
 }
 
+/* Image de fond de la carte */
 .card-img-top {
   height: 200px;
   object-fit: cover;
+  width: 100%;
+  border-bottom: 2px solid #f2f3f4; /* Ligne de séparation subtile */
+  border-radius: 12px 12px 0 0; /* Coins arrondis en haut pour fusionner avec la carte */
   transition: transform 0.3s ease;
 }
 
 .card:hover .card-img-top {
-  transform: scale(1.05);
+  transform: scale(1.05); /* Zoom léger de l'image au survol */
 }
 
+/* Bloc avec le texte et les informations */
 .card-body {
   padding: 20px;
-  background-color: #fff;
-  border-top: 1px solid #eee;
+  background-color: #ffffff;
+  border-top: 2px solid #f2f3f4;
+  border-radius: 0 0 12px 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
+/* Style pour le titre de la carte */
 .card-title {
-  font-size: 1.25rem;
+  font-size: 1.5rem; /* Taille du titre */
   font-weight: 600;
-  color: #007bff;
-  margin-bottom: 15px;
-}
-
-.card-title a {
+  color: #2c3e50; /* Couleur du texte du titre */
+  margin-top: 1rem;
+  margin-bottom: 0.75rem;
   text-decoration: none;
-  color: inherit;
   transition: color 0.3s ease;
 }
 
-.card-title a:hover {
-  color: #0056b3;
+/* Style pour les liens dans les titres */
+.card-title a {
+  color: inherit;
+  text-decoration: none;
 }
 
+.card-title a:hover {
+  color: #e74c3c; /* Couleur au survol pour les liens */
+  text-decoration: underline; /* Soulignement au survol */
+}
+
+/* Style pour le texte de la carte */
 .card-text {
   font-size: 1rem;
-  color: #495057;
-  margin-bottom: 10px;
+  color: #7f8c8d; /* Gris moyen pour le texte secondaire */
+  margin-bottom: 0.75rem;
 }
 
+/* Boutons */
 .btn-primary {
-  background-color: #007bff;
-  border-color: #007bff;
+  background-color: #e74c3c; /* Rouge vif pour les boutons principaux */
+  border-color: #e74c3c;
   font-weight: 600;
-  transition: background-color 0.3s ease, border-color 0.3s ease;
+  border-radius: 8px; /* Coins arrondis pour les boutons */
+  padding: 0.5rem 1rem; /* Ajuster la taille du bouton */
+  transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .btn-primary:hover {
-  background-color: #0056b3;
-  border-color: #004085;
+  background-color: #c0392b; /* Couleur plus foncée au survol pour les boutons principaux */
+  border-color: #c0392b;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.btn-secondary {
+  background-color: #bdc3c7; /* Gris doux pour les boutons secondaires */
+  border-color: #bdc3c7;
+  font-weight: 600;
+  border-radius: 8px; /* Coins arrondis pour les boutons */
+  padding: 0.5rem 1rem; /* Ajuster la taille du bouton */
+  transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.btn-secondary:hover {
+  background-color: #95a5a6; /* Couleur plus foncée au survol pour les boutons secondaires */
+  border-color: #95a5a6;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Barre de recherche et bouton */
+.form-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.form-control {
+  border-radius: 8px;
+  height: 40px;
+  border: 1px solid #bdc3c7; /* Bordure gris clair pour la barre de recherche */
+}
+
+.btn-search {
+  height: 40px;
+  border-radius: 8px;
+  margin-left: 0.5rem;
+  background-color: #e74c3c; /* Couleur du bouton de recherche */
+  color: #ffffff;
+  border: none;
+  padding: 0 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-search:hover {
+  background-color: #c0392b; /* Couleur au survol pour le bouton de recherche */
+}
+
+/* Alignement du lien pour ajouter une nouvelle offre */
+.text-end {
+  text-align: right;
+  margin-bottom: 2rem;
+}
+
+/* Alignement du texte du bouton */
+.btn {
+  border-radius: 8px;
+}
+
+/* Marges et espacements */
+.mt-5 {
+  margin-top: 3rem !important;
+}
+
+.mb-4 {
+  margin-bottom: 2.5rem !important;
+}
+
+.my-3 {
+  margin-top: 1rem !important;
+  margin-bottom: 1rem !important;
+}
+
+.mb-3 {
+  margin-bottom: 1rem !important;
+}
+
+.mt-3 {
+  margin-top: 1rem !important;
+}
+
+.mt-4 {
+  margin-top: 2rem !important;
+}
+
+/* Animation de fondu en ouverture */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Appliquer l'animation de fondu en ouverture aux cartes */
+.card {
+  opacity: 0;
+  animation: fadeInUp 0.5s ease forwards;
 }
