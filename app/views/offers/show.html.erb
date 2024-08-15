@@ -16,9 +16,16 @@
         <p class="lead"> 📍 <strong>Localisation:</strong> <%= @offer.localisation %></p>
         <p class="lead"><br><strong>Description:</strong> <%= @offer.description %></p>
         <div class="text-center p-3">
-          <br><%= link_to "Book this performance", new_offer_booking_path(@offer), class: "btn btn-info btn-lg" %>
+          <div data-controller="toggle" class="mt-5">
+            <button data-action="click->toggle#fire" class="btn btn-info btn-lg">Book this performance</button>
+            <div data-toggle-target="togglableForm" class="d-none">
+              <%= render "bookings/form", booking: @booking %>
+            </div>
+        </div>
         </div>
       </div>
+
+
 
       <div class="col-12 text-end m-4">
           <%= link_to "Back to offers", offers_path, class: "btn btn-secondary" %>

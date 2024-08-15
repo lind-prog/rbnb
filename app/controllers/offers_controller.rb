@@ -1,5 +1,5 @@
 class OffersController < ApplicationController
-  skip_before_action :authenticate_user!, only: %i[index show]
+  skip_before_action :authenticate_user!, only: %i[index]
   before_action :set_offer, only: %i[show]
   def index
     @offers = Offer.all
@@ -20,6 +20,7 @@ class OffersController < ApplicationController
   end
 
   def show
+    @booking = Booking.new
   end
   #afficher la nouvelle offre dans la view de l'index
   #retourner sur l'offre une fois le create terminé
