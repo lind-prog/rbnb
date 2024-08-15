@@ -25,12 +25,22 @@
         <p class="lead"> 🥳 <strong>Enthusiasm level:</strong> <%= @offer.enthusiasm_level %></p>
         <p class="lead"> 📸 <strong>Activity:</strong> <%= @offer.activity %></p>
         <p class="lead"> 💸 <strong>Price:</strong> <%= number_to_currency(@offer.price, unit: "€") %></p>
-        <div class="text-center pt-3">
-          <%= link_to "Book this performance", new_offer_booking_path(@offer), class: "btn btn-info btn-lg" %>
-        </div>
+
+        <p class="lead"> 📍 <strong>Localisation:</strong> <%= @offer.localisation %></p>
+        <p class="lead"><br><strong>Description:</strong> <%= @offer.description %></p>
+        <% if current_user && current_user != @offer.user  %>
+          <div class="text-center p-3">
+            <div data-controller="toggle" class="mt-1">
+              <button data-action="click->toggle#fire" data-toggle-target="togglableButton" class="btn btn-outline-info">Book this performance</button>
+              <div data-toggle-target="togglableForm" class="d-none">
+                <%= render "bookings/form", booking: @booking %>
+              </div>
+            </div>
+          </div>
+        <% end %>
       </div>
 
-      <div class="col-12 text-end mt-4">
+      <div class="col-12 text-end m-4">
           <%= link_to "Back to offers", offers_path, class: "btn btn-secondary" %>
       </div>
     </div>

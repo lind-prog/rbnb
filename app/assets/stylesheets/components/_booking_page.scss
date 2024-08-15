@@ -11,8 +11,8 @@ body {
 
 /* Styles spécifiques pour le conteneur de réservation */
 .booking-container {
-  margin-top: 5rem;
-  padding: 2rem;
+  margin-top: 2rem;
+  padding: 2;
   border-radius: 0.5rem;
 }
 
@@ -24,8 +24,8 @@ body {
 
 /* En-tête de la carte */
 .booking-card-header {
-  background-image: linear-gradient(135deg, #17a2b8, #007bff);
+  background-image: linear-gradient(135deg, #17a2b8, #ff00f2);
   color: #fff;
-  padding: 1.5rem;
+  padding: 1;
   border-bottom: none;
 }
