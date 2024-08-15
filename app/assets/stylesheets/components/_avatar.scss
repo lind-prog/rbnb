@@ -1,20 +1,53 @@
 .avatar {
-  width: 40px;
-  border-radius: 50%;
-}
-.avatar-large {
-  width: 56px;
-  border-radius: 50%;
-}
-.avatar-bordered {
-  width: 40px;
-  border-radius: 50%;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
-  border: white 1px solid;
-}
-.avatar-square {
-  width: 40px;
-  border-radius: 0px;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
-  border: white 1px solid;
+  width: 80px;  /* Taille par défaut de l'avatar */
+  height: 80px;
+  border-radius: 50%; /* Forme circulaire */
+  overflow: hidden;
+  border: 2px solid #e74c3c; /* Bordure rouge */
+  display: inline-block;
+  position: relative;
+  background-color: #ffffff; /* Fond blanc par défaut */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+  &.small {
+    width: 50px;
+    height: 50px;
+  }
+
+  &.medium {
+    width: 50px;
+    height: 50px;
+  }
+
+  &.large {
+    width: 80px;
+    height: 80px;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Pour couvrir toute la surface de l'avatar */
+  }
+
+  /* Indicateur de présence */
+  .status {
+    width: 14px; /* Légèrement plus grand pour améliorer la visibilité */
+    height: 14px;
+    border-radius: 50%;
+    background-color: #2ecc71; /* Vert pour disponible */
+    border: 2px solid #ffffff;
+    position: absolute;
+    bottom: 4px; /* Positionnement légèrement au-dessus du bord inférieur */
+    right: 4px;  /* Positionnement légèrement à gauche du bord droit */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+
+    &.offline {
+      background-color: #bdc3c7; /* Gris pour hors ligne */
+    }
+
+    &.busy {
+      background-color: #e74c3c; /* Rouge pour occupé */
+    }
+  }
 }
