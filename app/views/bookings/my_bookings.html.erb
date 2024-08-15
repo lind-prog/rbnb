@@ -1,31 +1,87 @@
 <div class="container mt-5">
   <h1> My bookings 🪩 </h1>
-   <div class="col-12 text-end mb-3 mr-6">
-        <%= link_to "Back to offers", offers_path, class: "btn btn-secondary" %>
-    </div>
 
-   <div class="row">
-    <% @bookings.each do |booking| %>
-     <div class="col-12">
-      <div class="card mb-4 shadow-sm">
-        <div class="card-body">
-         <div class = row>
-          <div class="col-md-8">
-           <h3 p-10><%= booking.offer.title %></h3>
-            <p><strong>Activity: </strong><%= booking.offer.activity %></p>
-            <p><strong>Number of fans: </strong><%= booking.offer.number_of_fan %></p>
-            <p><strong>Enthusiasm level: </strong><%= booking.offer.enthusiasm_level %></p>
-            <p><strong>Localisation: </strong><%= booking.offer.localisation %></p>
-            <p><strong>Price: </strong> <%= booking.offer.price %>€</p>
+  <div class="col-12 text-end mb-3 mr-6">
+    <%= link_to "Back to offers", offers_path, class: "btn", style: "background-color: #e74c3c; color: white;" %>
+  </div>
+
+  <div class="text-center mb-3">
+    <div class="collapse-bar d-flex justify-content-between align-items-center" style="background-color: #e74c3c; padding: 10px; border-radius: 5px; color: white;">
+      <span style="font-size: 18px;">My reservation</span>
+      <button class="btn btn-light" type="button" data-bs-toggle="collapse" data-bs-target="#allBookingsCollapse" aria-expanded="false" aria-controls="allBookingsCollapse">
+        <i class="fas fa-chevron-down"></i>
+      </button>
+    </div>
+  </div>
+
+  <div class="collapse" id="allBookingsCollapse">
+    <div class="card card-body" style="border: 2px solid #e74c3c; background-color: #f8f9fa;">
+      <div class="row">
+        <% @bookings.each do |booking| %>
+          <div class="col-12">
+            <div class="card mb-4 shadow-sm">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-md-8">
+                    <h3><%= booking.offer.title %></h3>
+                    <p><strong>Activity: </strong><%= booking.offer.activity %></p>
+                    <p><strong>Number of fans: </strong><%= booking.offer.number_of_fan %></p>
+                    <p><strong>Enthusiasm level: </strong><%= booking.offer.enthusiasm_level %></p>
+                    <p><strong>Localisation: </strong><%= booking.offer.localisation %></p>
+                    <p><strong>Price: </strong> <%= booking.offer.price %>€</p>
+                  </div>
+                  <div class="col-md-4 text-md-right">
+                    <p><strong>Reservation date: </strong> <%= booking.date %></p>
+                    <p><strong>My comment: </strong> <%= booking.additional_requests %></p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-           <div class="col-md-4 text-md-right">
-            <p><strong>Reservation date: </strong> <%= booking.date %></p>
-            <p><strong>My comment: </strong> <%= booking.additional_requests %></p>
-           </div>
-        </div>
-        </div>
+        <% end %>
       </div>
     </div>
-    <% end %>
+  </div>
+
+  <div class="text-center mb-3">
+    <div class="collapse-bar d-flex justify-content-between align-items-center" style="background-color: #e74c3c; padding: 10px; border-radius: 5px; color: white;">
+      <span style="font-size: 18px;">Mes propositions</span>
+      <button class="btn btn-light" type="button" data-bs-toggle="collapse" data-bs-target="#ownerBookingsCollapse" aria-expanded="false" aria-controls="ownerBookingsCollapse">
+        <i class="fas fa-chevron-down"></i>
+      </button>
+    </div>
+  </div>
+
+  <div class="collapse" id="ownerBookingsCollapse">
+    <div class="card card-body" style="border: 2px solid #e74c3c; background-color: #f8f9fa;">
+      <div class="row">
+        <% @offers_bookings.each do |booking| %>
+          <div class="col-12">
+            <div class="card mb-4 shadow-sm">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-md-8">
+                    <h3><%= booking.offer.title %></h3>
+                    <p><strong>Activity: </strong><%= booking.offer.activity %></p>
+                    <p><strong>Number of fans: </strong><%= booking.offer.number_of_fan %></p>
+                    <p><strong>Enthusiasm level: </strong><%= booking.offer.enthusiasm_level %></p>
+                    <p><strong>Localisation: </strong><%= booking.offer.localisation %></p>
+                    <p><strong>Price: </strong> <%= booking.offer.price %>€</p>
+                  </div>
+                  <div class="col-md-4 text-md-right">
+                    <p><strong>Reservation date: </strong> <%= booking.date %></p>
+                    <p><strong>Client's comment: </strong> <%= booking.additional_requests %></p>
+
+                    <!-- Boutons pour accepter ou refuser la réservation -->
+                    
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>

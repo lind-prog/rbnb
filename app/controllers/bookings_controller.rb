@@ -18,6 +18,7 @@ class BookingsController < ApplicationController
 
   def my_bookings
     @bookings = current_user.bookings.includes(:offer)
+    @offers_bookings = current_user.offers_bookings
   end
 
   private
