@@ -1,5 +1,5 @@
 class OffersController < ApplicationController
-  skip_before_action :authenticate_user!, only: %i[index show]
+  skip_before_action :authenticate_user!, only: %i[index]
   before_action :set_offer, only: %i[show]
 
   def index
@@ -25,9 +25,8 @@ class OffersController < ApplicationController
   end
 
   def show
-    # afficher la nouvelle offre dans la vue de l'index
-    # retourner sur l'offre une fois le create terminé
-    # insérer une image avec le tout
+
+    @booking = Booking.new
   end
 
   private
