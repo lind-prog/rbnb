@@ -3,9 +3,6 @@
   <div class="row justify-content-center">
     <div class="col-md-8">
       <div class="card booking-card">
-        <div class="card-header booking-card-header">
-          <h3>Book <%= @offer.title %></h3>
-        </div>
         <div class="card-body booking-card-body">
           <%= form_with model: [@offer, @booking], local: true do |form| %>
             <div class="mb-3">
@@ -19,7 +16,7 @@
             </div>
 
             <div class="d-grid">
-              <%= form.submit 'Confirm Booking', class: "btn btn-primary booking-btn btn-lg" %>
+              <%= form.submit 'Confirm Booking', class: "btn btn-outline-info booking-btn" %>
             </div>
           <% end %>
         </div>
