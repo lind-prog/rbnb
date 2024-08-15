@@ -5,9 +5,9 @@
   <!-- Barre de recherche -->
   <div class="row justify-content-center">
     <div class="col-sm-8 my-3">
-      <%= form_with url: offers_path, method: :get, class: "d-flex" do %>
-        <%= text_field_tag :query, params[:query], class: "form-control me-2", placeholder: "Search for offers..." %>
-        <%= submit_tag "Search", name: nil, class: "btn btn-primary" %>
+      <%= form_with url: offers_path, method: :get, class: "d-flex form-group" do %>
+        <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Search for offers..." %>
+        <%= submit_tag "Search", name: nil, class: "btn btn-primary btn-search" %>
       <% end %>
     </div>
   </div>
@@ -23,11 +23,8 @@
       <% @offers.each do |offer| %>
         <div class="col-md-4 mb-3">
           <div class="card">
-            <!-- Bloc avec le texte et les informations -->
+            <%= offer.image.attached? ? cl_image_tag(offer.image.key, class: "card-img-top", alt: "Offer Image") : image_tag("default-offer", class: "card-img-top", alt: 'Offer image') %>
             <div class="card-body">
-              <h5 class="card-title"><%= link_to offer.title, offer_path(offer), class: "text-dark" %></h5>
-            <%= offer.image.attached? ? cl_image_tag(offer.image.key, class: "card-img-top", alt: "Offer Image") : image_tag("default-offer", class:"card-img-top", alt: 'Offer image') %>
-            <div class="card-body ">
               <h5 class="card-title"><%= link_to offer.title, offer_path(offer), class: "text-dark stretched-link" %></h5>
               <p class="card-text"><strong>Number of Fans:</strong> <%= offer.number_of_fan %></p>
               <p class="card-text"><strong>Enthusiasm Level:</strong> <%= offer.enthusiasm_level %></p>
