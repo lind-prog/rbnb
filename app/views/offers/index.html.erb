@@ -37,7 +37,7 @@
       <% @offers.each do |offer| %>
         <div class="col-md-4 mb-3">
           <div class="card">
-            <%= offer.image.attached? ? cl_image_tag(offer.image.key, class: "card-img-top", alt: "Offer Image") : image_tag("default-offer", class: "card-img-top", alt: 'Offer image') %>
+            <%= offer.image.attached? ? cl_image_tag(offer.image.key, class: "card-img-top", alt: "Offer Image") : image_tag("default-offer.png", class: "card-img-top", alt: 'Offer image') %>
             <div class="card-body">
               <h5 class="card-title"><%= link_to offer.title, offer_path(offer), class: "text-dark stretched-link" %></h5>
               <p class="card-text"><strong>Number of Fans:</strong> <%= offer.number_of_fan %></p>
