@@ -26,18 +26,17 @@ h1 {
   border: none;
   border-radius: 12px; /* Coins arrondis marqués */
   overflow: hidden;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1); /* Ombre douce */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
   position: relative;
   margin-bottom: 1.5rem;
   background-color: #ffffff; /* Fond blanc pour les cartes */
 }
 
-/* Effet d'ombre et de survol pour la carte */
+/* Effet de zoom léger pour la carte */
 .card:hover {
-  transform: translateY(-10px); /* Déplacement plus marqué au survol */
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
-  background-color: #f9f9f9; /* Couleur de fond légèrement grise au survol */
+  transform: translateY(-5px); /* Déplacement subtil au survol */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); /* Ombre légèrement accentuée */
 }
 
 /* Image de fond de la carte */
@@ -47,6 +46,11 @@ h1 {
   width: 100%;
   border-bottom: 2px solid #f2f3f4; /* Ligne de séparation subtile */
   border-radius: 12px 12px 0 0; /* Coins arrondis en haut pour fusionner avec la carte */
+  transition: transform 0.3s ease;
+}
+
+.card:hover .card-img-top {
+  transform: scale(1.05); /* Zoom léger de l'image au survol */
 }
 
 /* Bloc avec le texte et les informations */
@@ -180,16 +184,28 @@ h1 {
   margin-bottom: 1rem !important;
 }
 
-.text-center {
-  text-align: center !important;
+.mt-3 {
+  margin-top: 1rem !important;
 }
 
-/* Animation et effets supplémentaires */
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+.mt-4 {
+  margin-top: 2rem !important;
 }
 
-.fade-in {
-  animation: fadeIn 0.5s ease-in-out;
+/* Animation de fondu en ouverture */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Appliquer l'animation de fondu en ouverture aux cartes */
+.card {
+  opacity: 0;
+  animation: fadeInUp 0.5s ease forwards;
 }
