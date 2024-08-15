@@ -2,7 +2,7 @@ class Offer < ApplicationRecord
   include PgSearch::Model
 
   belongs_to :user
-  has_many :bookings
+  has_many :bookings, dependent: :destroy
   has_one_attached :image
   validates :title, :number_of_fan, :activity, :price, presence: true
 
