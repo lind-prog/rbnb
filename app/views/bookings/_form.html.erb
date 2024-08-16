@@ -4,15 +4,18 @@
     <div class="col-md-8">
       <div class="card booking-card">
         <div class="card-body booking-card-body">
-          <%= form_with model: [@offer, @booking], local: true do |form| %>
+          <%= simple_form_for [@offer, @booking], local: true do |form| %>
             <div class="mb-3">
-              <%= form.label :date, "Select Date", class: "form-label booking-form-label" %>
-              <%= form.date_field :date, class: "form-control booking-form-control" %>
+              <%= form.input :date,
+                as: :string,
+                input_html: { class: "form-control booking-form-control", data: { controller: "datepicker" } } %>
             </div>
 
             <div class="mb-3">
-              <%= form.label :additional_requests, "Additional Requests", class: "form-label booking-form-label" %>
-              <%= form.text_area :additional_requests, class: "form-control booking-form-control", placeholder: "Enter any special requests or notes here..." %>
+              <%= form.input :additional_requests,
+                as: :text,
+                label: "Additional Requests",
+                input_html: { class: "form-control booking-form-control", placeholder: "Enter any special requests or notes here..." } %>
             </div>
 
             <div class="d-grid">
