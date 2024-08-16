@@ -19,7 +19,7 @@
         <% if current_user && current_user != @offer.user  %>
           <div class="text-center p-3">
             <div data-controller="toggle" class="mt-1">
-              <button data-action="click->toggle#fire" data-toggle-target="togglableButton" class="btn btn-outline-info ">Book this performance</button>
+              <button data-action="click->toggle#fire" data-toggle-target="togglableButton" class="btn btn-outline-info text-black">Book this performance</button>
               <div data-toggle-target="togglableForm" class="d-none">
                 <%= render "bookings/form", booking: @booking %>
               </div>
