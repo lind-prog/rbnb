@@ -1,47 +1,47 @@
 /* navbar.scss */
 
 .navbar {
-  background-color: #e74c3c; /* Fond sombre */
+  background-color: #e74c3c; /* Couleur de fond de la navbar */
   padding: 10px 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 
   .navbar-brand {
     font-size: 1.5rem;
     font-weight: 700;
-    color: #ecf0f1;
+    color: #ffffff; /* Couleur du texte de la marque */
     text-decoration: none;
     transition: color 0.3s ease;
 
     &:hover {
-      color: #e74c3c; /* Rouge au survol */
+      color: #ffebee; /* Couleur claire au survol pour plus de contraste */
     }
   }
 
-  .navbar-menu {
+  .navbar-nav {
     display: flex;
     align-items: center;
 
     .nav-item {
       margin-left: 20px;
-      list-style: none;
 
-      a {
-        color: #ecf0f1;
-        text-decoration: none;
-        font-weight: 500;
+      .nav-link {
+        color: #ffffff; /* Couleur des liens */
         transition: color 0.3s ease;
+        font-weight: 500;
+        text-decoration: none;
 
         &:hover {
-          color: #e74c3c; /* Rouge au survol */
+          color: #ffdede; /* Couleur plus claire au survol */
         }
       }
     }
   }
 
-  .navbar-avatar {
-    margin-left: 20px;
+  .navbar-toggler {
+    border-color: #ffffff; /* Couleur du bouton de menu mobile */
+  }
+
+  .navbar-toggler-icon {
+    background-image: url('data:image/svg+xml;charset=utf8,%3Csvg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30"%3E%3Cpath stroke="%23ffffff" stroke-width="3" d="M5 7h20M5 15h20M5 23h20" /%3E%3C/svg%3E');
   }
 }
