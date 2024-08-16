@@ -1,17 +1,175 @@
-.card-title {
-  font-size: 1.5rem;
-  font-weight: bold;
+$primary-color: #e74c3c;
+$secondary-color: #fdfdfd;
+$text-color: #333;
+$background-color: #f3f3f3;
+$highlight-color: #f1c40f;
+$accept-color: #2ecc71;
+$refuse-color: #ff1900;
+$pending-color: #f1c40f;
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: $background-color;
+  color: $text-color;
 }
 
-.card-subtitle {
+h1 {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: $primary-color;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.card00 {
+  background-color: $secondary-color;
+  border-radius: 20px;
+  padding: 25px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 150px;
+    height: 150px;
+    background-color: $pending-color;
+    border-radius: 50%;
+    z-index: 0;
+  }
+
+  &.status-accepted::before {
+    background-color: $accept-color;
+  }
+
+  &.status-refused::before {
+    background-color: $refuse-color;
+  }
+
+  &.status-pending::before {
+    background-color: $pending-color;
+  }
+}
+
+.card-body00 {
+  position: relative;
+  z-index: 1;
+}
+
+.card-title00 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: $primary-color;
+  margin-bottom: 1rem;
+}
+
+.card-subtitle00 {
   font-size: 1.2rem;
-  color: #6c757d;
+  color: #7f8c8d;
+  margin-bottom: 1rem;
 }
 
-.card {
-  border-radius: 10px;
+.additional-info {
+  font-size: 1rem;
+  color: #95a5a6;
+  margin-bottom: 1.5rem;
 }
 
-.card-body {
-  padding: 20px;
+.price {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: $highlight-color;
+  margin-bottom: 1.5rem;
+}
+
+.reservation-date {
+  font-size: 1.2rem;
+  color: $primary-color;
+  font-weight: 600;
+}
+
+button {
+  font-size: 1rem;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-weight: 600;
+  margin-right: 10px;
+
+  &.btn-success {
+    background-color: #27ae60;
+    color: white;
+
+    &:hover {
+      background-color: darken(#27ae60, 10%);
+    }
+  }
+
+  &.btn-danger {
+    background-color: $primary-color;
+    color: white;
+
+    &:hover {
+      background-color: darken($primary-color, 10%);
+    }
+  }
+}
+
+.card-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  z-index: 1;
+}
+
+.card-icon {
+  font-size: 1.8rem;
+  color: $primary-color;
+  margin-right: 10px;
+}
+
+.collapse-bar {
+  background-color: $primary-color;
+  padding: 15px;
+  color: white;
+  font-size: 1.4rem;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  button {
+    color: white;
+    background-color: transparent;
+    border: none;
+    font-size: 1.4rem;
+  }
+}
+
+.status-message {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.text-success {
+  color: $accept-color;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.text-danger {
+  color: $refuse-color;
+  font-weight: bold;
+  font-size: 1.2rem;
 }

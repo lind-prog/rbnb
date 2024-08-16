@@ -21,6 +21,16 @@ class BookingsController < ApplicationController
     @offers_bookings = current_user.offers_bookings
   end
 
+  def accept
+    @booking = Booking.find(params[:id])
+    @booking.update(accepted: true)
+  end
+
+  def refuse
+    @booking = Booking.find(params[:id])
+    @booking.update(accepted: false)
+  end
+
   private
 
   def set_offer

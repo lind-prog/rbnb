@@ -1,87 +1,128 @@
-<div class="container mt-5">
-  <h1> My bookings 🪩 </h1>
+<div class="container">
+  <h1>My bookings 🪩</h1>
 
-  <div class="col-12 text-end mb-3 mr-6">
+  <div class="col-12 text-end mb-3">
     <%= link_to "Back to offers", offers_path, class: "btn", style: "background-color: #e74c3c; color: white;" %>
   </div>
 
   <div class="text-center mb-3">
-    <div class="collapse-bar d-flex justify-content-between align-items-center" style="background-color: #e74c3c; padding: 10px; border-radius: 5px; color: white;">
-      <span style="font-size: 18px;">My reservation</span>
-      <button class="btn btn-light" type="button" data-bs-toggle="collapse" data-bs-target="#allBookingsCollapse" aria-expanded="false" aria-controls="allBookingsCollapse">
+    <div class="collapse-bar">
+      <span>My bookings</span>
+      <button class="btn" type="button" data-bs-toggle="collapse" data-bs-target="#allBookingsCollapse" aria-expanded="false" aria-controls="allBookingsCollapse">
         <i class="fas fa-chevron-down"></i>
       </button>
     </div>
   </div>
 
   <div class="collapse" id="allBookingsCollapse">
-    <div class="card card-body" style="border: 2px solid #e74c3c; background-color: #f8f9fa;">
-      <div class="row">
-        <% @bookings.each do |booking| %>
-          <div class="col-12">
-            <div class="card mb-4 shadow-sm">
-              <div class="card-body">
-                <div class="row">
-                  <div class="col-md-8">
-                    <h3><%= booking.offer.title %></h3>
-                    <p><strong>Activity: </strong><%= booking.offer.activity %></p>
-                    <p><strong>Number of fans: </strong><%= booking.offer.number_of_fan %></p>
-                    <p><strong>Enthusiasm level: </strong><%= booking.offer.enthusiasm_level %></p>
-                    <p><strong>Localisation: </strong><%= booking.offer.localisation %></p>
-                    <p><strong>Price: </strong> <%= booking.offer.price %>€</p>
-                  </div>
-                  <div class="col-md-4 text-md-right">
-                    <p><strong>Reservation date: </strong> <%= booking.date %></p>
-                    <p><strong>My comment: </strong> <%= booking.additional_requests %></p>
-                  </div>
-                </div>
-              </div>
+    <div class="row">
+      <% @bookings.each do |booking| %>
+        <div class="col-md-6 mb-4">
+          <div class="card00
+            <% if booking.accepted? %>
+              status-accepted
+            <% elsif booking.accepted == false %>
+              status-refused
+            <% else %>
+              status-pending
+            <% end %>
+          ">
+            <% if booking.offer.present? %>
+              <% if booking.offer.image.attached? %>
+                <%= cl_image_tag(booking.offer.image.key, class: "card-img-top", alt: "Offer Image") %>
+              <% else %>
+                <%= image_tag("default-offer.png", class: "card-img-top", alt: "Offer image") %>
+              <% end %>
+            <% else %>
+              <%= image_tag("default-offer.png", class: "card-img-top", alt: "Offer image") %>
+            <% end %>
+
+            <div class="card-body00">
+              <h3 class="card-title00">
+                <i class="fas fa-ticket-alt card-icon"></i>
+                <%= booking.offer.title %>
+              </h3>
+              <p class="price"><strong>Price:</strong> <%= booking.offer.price %>€</p>
+              <p class="card-subtitle00"><strong>Activity:</strong> <%= booking.offer.activity %></p>
+              <p class="card-subtitle00"><strong>Number of fans:</strong> <%= booking.offer.number_of_fan %></p>
+              <p class="card-subtitle00"><strong>Enthusiasm level:</strong> <%= booking.offer.enthusiasm_level %></p>
+              <p class="card-subtitle00"><strong>Localisation:</strong> <%= booking.offer.localisation %></p>
+              <p class="reservation-date"><strong>Reservation date:</strong> <%= booking.date %></p>
+              <p class="additional-info"><strong>My comment:</strong> <%= booking.additional_requests %></p>
+
+              <% if booking.accepted? %>
+                <p class="status-message text-success">Great! Your booking has been confirmed!</p>
+              <% elsif booking.accepted == false %>
+                <p class="status-message text-danger">Sorry... Your booking request has been declined.</p>
+              <% end %>
             </div>
           </div>
-        <% end %>
-      </div>
+        </div>
+      <% end %>
     </div>
   </div>
 
   <div class="text-center mb-3">
-    <div class="collapse-bar d-flex justify-content-between align-items-center" style="background-color: #e74c3c; padding: 10px; border-radius: 5px; color: white;">
-      <span style="font-size: 18px;">Mes propositions</span>
-      <button class="btn btn-light" type="button" data-bs-toggle="collapse" data-bs-target="#ownerBookingsCollapse" aria-expanded="false" aria-controls="ownerBookingsCollapse">
+    <div class="collapse-bar">
+      <span>My booking requests</span>
+      <button class="btn" type="button" data-bs-toggle="collapse" data-bs-target="#ownerBookingsCollapse" aria-expanded="false" aria-controls="ownerBookingsCollapse">
         <i class="fas fa-chevron-down"></i>
       </button>
     </div>
   </div>
 
   <div class="collapse" id="ownerBookingsCollapse">
-    <div class="card card-body" style="border: 2px solid #e74c3c; background-color: #f8f9fa;">
-      <div class="row">
-        <% @offers_bookings.each do |booking| %>
-          <div class="col-12">
-            <div class="card mb-4 shadow-sm">
-              <div class="card-body">
-                <div class="row">
-                  <div class="col-md-8">
-                    <h3><%= booking.offer.title %></h3>
-                    <p><strong>Activity: </strong><%= booking.offer.activity %></p>
-                    <p><strong>Number of fans: </strong><%= booking.offer.number_of_fan %></p>
-                    <p><strong>Enthusiasm level: </strong><%= booking.offer.enthusiasm_level %></p>
-                    <p><strong>Localisation: </strong><%= booking.offer.localisation %></p>
-                    <p><strong>Price: </strong> <%= booking.offer.price %>€</p>
-                  </div>
-                  <div class="col-md-4 text-md-right">
-                    <p><strong>Reservation date: </strong> <%= booking.date %></p>
-                    <p><strong>Client's comment: </strong> <%= booking.additional_requests %></p>
+    <div class="row">
+      <% @offers_bookings.each do |booking| %>
+        <div class="col-md-6 mb-4">
+          <div class="card00
+            <% if booking.accepted? %>
+              status-accepted
+            <% elsif booking.accepted == false %>
+              status-refused
+            <% else %>
+              status-pending
+            <% end %>
+          ">
+             <% if booking.offer.present? %>
+              <% if booking.offer.image.attached? %>
+                <%= cl_image_tag(booking.offer.image.key, class: "card-img-top", alt: "Offer Image") %>
+              <% else %>
+                <%= image_tag("default-offer.png", class: "card-img-top", alt: "Offer image") %>
+              <% end %>
+            <% else %>
+              <%= image_tag("default-offer.png", class: "card-img-top", alt: "Offer image") %>
+            <% end %>
 
-                    <!-- Boutons pour accepter ou refuser la réservation -->
-                    
+            <div class="card-body00">
+              <h3 class="card-title00">
+                <i class="fas fa-users card-icon"></i>
+                <%= booking.offer.title %>
+              </h3>
+              <p class="price"><strong>Price:</strong> <%= booking.offer.price %>€</p>
+              <p class="card-subtitle00"><strong>Activity:</strong> <%= booking.offer.activity %></p>
+              <p class="card-subtitle00"><strong>Number of fans:</strong> <%= booking.offer.number_of_fan %></p>
+              <p class="card-subtitle00"><strong>Enthusiasm level:</strong> <%= booking.offer.enthusiasm_level %></p>
+              <p class="card-subtitle00"><strong>Localisation:</strong> <%= booking.offer.localisation %></p>
+              <p class="reservation-date"><strong>Reservation date:</strong> <%= booking.date %></p>
+              <p class="additional-info"><strong>Client's comment:</strong> <%= booking.additional_requests %></p>
 
-                  </div>
-                </div>
-              </div>
+              <% if booking.accepted == nil %>
+                <%= form_with url: accept_booking_path(booking), method: :post, class: "d-inline" do %>
+                  <%= button_to "Accept", accept_booking_path(booking), class: "btn btn-success" %>
+                <% end %>
+                <%= form_with url: refuse_booking_path(booking), method: :post, class: "d-inline" do %>
+                  <%= button_to "Refuse", refuse_booking_path(booking), class: "btn btn-danger" %>
+                <% end %>
+              <% elsif booking.accepted %>
+                <p class="status-message text-success">The booking was accepted.</p>
+              <% else %>
+                <p class="status-message text-danger">The booking was declined.</p>
+              <% end %>
             </div>
           </div>
-        <% end %>
-      </div>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
