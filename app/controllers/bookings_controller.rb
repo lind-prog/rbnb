@@ -24,11 +24,13 @@ class BookingsController < ApplicationController
   def accept
     @booking = Booking.find(params[:id])
     @booking.update(accepted: true)
+    redirect_to my_bookings_bookings_path
   end
 
   def refuse
     @booking = Booking.find(params[:id])
     @booking.update(accepted: false)
+    redirect_to my_bookings_bookings_path
   end
 
   private
