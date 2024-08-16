@@ -2,7 +2,7 @@
 
 /* Style général du corps */
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Open Sans', sans-serif; /* Police moderne pour le texte principal */
   background-color: #f2f3f4; /* Arrière-plan très clair */
   color: #2c3e50; /* Couleur du texte principal */
   line-height: 1.6;
@@ -12,6 +12,7 @@ body {
 
 /* Style pour les titres principaux */
 h1 {
+  font-family: 'Montserrat', sans-serif; /* Police moderne pour les titres */
   font-weight: 700;
   color: #2c3e50; /* Couleur du texte du titre */
   margin-bottom: 2.5rem;
@@ -66,6 +67,7 @@ h1 {
 
 /* Style pour le titre de la carte */
 .card-title {
+  font-family: 'Open Sans', sans-serif; /* Police pour le texte des cartes */
   font-size: 1.5rem; /* Taille du titre */
   font-weight: 600;
   color: #2c3e50; /* Couleur du texte du titre */
@@ -88,6 +90,7 @@ h1 {
 
 /* Style pour le texte de la carte */
 .card-text {
+  font-family: 'Open Sans', sans-serif; /* Police pour le texte secondaire */
   font-size: 1rem;
   color: #7f8c8d; /* Gris moyen pour le texte secondaire */
   margin-bottom: 0.75rem;
