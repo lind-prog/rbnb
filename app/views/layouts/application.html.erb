@@ -1,11 +1,17 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>StarForADay</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <%= csrf_meta_tags %>
-  <%= csp_meta_tag %>
-  <script src="https://kit.fontawesome.com/45e38e596f.js" crossorigin="anonymous"></script>
+
+  <head>
+    <title>StarForADay</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+   <script src="https://kit.fontawesome.com/45e38e596f.js" crossorigin="anonymous"></script>
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400&display=swap" rel="stylesheet">
